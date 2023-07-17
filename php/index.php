@@ -21,7 +21,7 @@
         </div>
     </div>
     <script>
-        var socket = io.connect('http://' + window.hostname + ':3000');
+        var socket = io.connect('http://' + window.location.hostname + ':3000');
         //listen on dataJarak 
         socket.on('dataJarak', function(data) {
             //set to id jarak

@@ -2,7 +2,7 @@
 //do connection to mysqli
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Shareit2023";
 $dbname = "shareit";
 
 // Create connection
