@@ -67,13 +67,14 @@
         socket.on('dataHistory', function(data) {
             //set dataHistory to ''
             document.getElementById("listHistory").innerHTML = "";
-            if (item.jarak > 50) {
-                var status = "Aman terkendali";
-            } else {
-                var status = "Pergerakan Terdeteksi";
-            }
+
             data.forEach(
                 function(item) {
+                    if (item.jarak > 50) {
+                        var status = "Aman terkendali";
+                    } else {
+                        var status = "Pergerakan Terdeteksi";
+                    }
                     var node = document.createElement("li");
                     var textnode = document.createTextNode(item.waktu + " " + status);
                     node.appendChild(textnode);
