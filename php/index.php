@@ -32,9 +32,6 @@
             <div class="history">
                 <h3>History Keamanan Ruangan</h3>
                 <div id="listHistory">
-                    <li>10.00 Aman Terkendali</li>
-                    <li>10.15 Pergerakan Terdeteksi</li>
-                    <li>10.30 Aman Terkendali</li>
                 </div>
             </div>
 
@@ -76,7 +73,7 @@
                         var status = "Pergerakan Terdeteksi";
                     }
                     var node = document.createElement("li");
-                    var textnode = document.createTextNode(item.waktu + " " + status);
+                    var textnode = document.createTextNode(item.waktu + " " + status + "(" + item.jarak + ")");
                     node.appendChild(textnode);
                     document.getElementById("listHistory").appendChild(node);
                 }
