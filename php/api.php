@@ -6,21 +6,21 @@ date_default_timezone_set('Asia/Jakarta');
 //receive get request jarak
 
 //make sure its number and not empty
-if (isset( $_GET['jarak']) && is_numeric( $_GET['jarak']) && !empty( $_GET['jarak'])) {
+if (isset($_GET['jarak']) && is_numeric($_GET['jarak']) && !empty($_GET['jarak'])) {
     $jarak = $_GET['jarak'];
 
     //select jarak from history order by waktu
     $sql = "SELECT jarak FROM history ORDER BY waktu DESC LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-
-    if(!$row) return;
-    if($row['jarak'] == $jarak)
-    {
+    if (!isset($row)) {
+        $row['jarak'] = "";
+    }
+    if ($row['jarak'] == $jarak) {
         echo "same";
         return;
     }
-    
+
     //save to database key jarak and value jarak if exist update
     $sql = "INSERT INTO setting (`key`, `value`) VALUES (?, ?) ON DUPLICATE KEY UPDATE value = ?";
     //prepare statement
@@ -33,7 +33,7 @@ if (isset( $_GET['jarak']) && is_numeric( $_GET['jarak']) && !empty( $_GET['jara
     //close connection
 
     //if success echo success
-    if($stmt){
+    if ($stmt) {
         //insert into history jarak and waktu
         $sql = "INSERT INTO history (`jarak`, `waktu`) VALUES (?, NOW())";
         //prepare statement
@@ -45,8 +45,7 @@ if (isset( $_GET['jarak']) && is_numeric( $_GET['jarak']) && !empty( $_GET['jara
         //close connection
         echo "success";
         $stmts->close();
-
-    }else{
+    } else {
         echo "failed";
     }
     $stmt->close();

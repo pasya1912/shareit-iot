@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sensor Ekolokasi - Shareit SMAN 2 Klari</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
 </head>
 
 <body>
     <div class="header">
-        <h1>Socket.io</h1>
+        <h1>Sensor Ekolokasi - Shareit</h1>
     </div>
     <div class="body">
         <p>Jarak pintu sekarang: <span id="jarak"></span></p>
@@ -21,11 +21,10 @@
         </div>
     </div>
     <script>
-        //connect to socket http://localhost:3000/socket.io/socket.io.js
-        var socket = io.connect('http://localhost:3000');
+        var socket = io.connect('http://' + window.hostname + ':3000');
         //listen on dataJarak 
         socket.on('dataJarak', function(data) {
-           //set to id jarak
+            //set to id jarak
             document.getElementById("jarak").innerHTML = data + " cm";
         });
         //listen on dataHistory
@@ -42,9 +41,8 @@
             );
 
 
-        
-        });
 
+        });
     </script>
 </body>
 
