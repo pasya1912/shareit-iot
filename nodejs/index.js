@@ -71,7 +71,7 @@ io.on("connection", function (socket) {
     }
   );
   dbConnection.query(
-    "SELECT * FROM history ORDER BY waktu DESC LIMIT 50",
+    "SELECT * FROM history WHERE jarak <= 50 ORDER BY waktu DESC LIMIT 7",
     (error, results) => {
       if (error) {
         console.log("Error executing query: ", error);
@@ -100,7 +100,7 @@ io.on("connection", function (socket) {
   //every 5 seconds get data history from mysql then send to client data history max 50
   setInterval(function () {
     dbConnection.query(
-      "SELECT * FROM history ORDER BY waktu DESC LIMIT 50",
+      "SELECT * FROM history WHERE jarak <= 50 ORDER BY waktu DESC LIMIT 7",
       (error, results) => {
         if (error) {
           console.log("Error executing query: ", error);
