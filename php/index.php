@@ -73,7 +73,7 @@
                         var status = "Pergerakan Terdeteksi";
                     }
                     var node = document.createElement("li");
-                    var textnode = document.createTextNode(item.waktu + " " + status + "(" + item.jarak + ")");
+                    var textnode = document.createTextNode(item.waktu + " " + status + "(" + item.jarak + " cm)");
                     node.appendChild(textnode);
                     document.getElementById("listHistory").appendChild(node);
                 }
