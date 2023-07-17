@@ -26,7 +26,7 @@
                 <div class="produk">
                     <img src="pesan.png" alt="pesan">
                     <h3>Pesan Keamanan</h3>
-                    <p id="statusJraak">"Pergerakan Terdeteksi"</p>
+                    <p id="statusJarak">"Pergerakan Terdeteksi"</p>
                 </div>
             </div>
             <div class="history">
